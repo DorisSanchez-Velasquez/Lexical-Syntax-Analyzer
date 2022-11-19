@@ -20,6 +20,7 @@ public class LexicalAnalyzer
     //Character Classes
     static final int LETTER = 0;
     static final int DIGIT = 1;
+    static final int KEYWORD = 2;
     static final int UNKNOWN = 99; 
 
     /*Keywords*/
@@ -115,7 +116,7 @@ public class LexicalAnalyzer
         }
     }
 
-    /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, end statement symbols etc. and return token code*/
+    /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, keywords, and end statement symbols etc. and return token code*/
     public static int identifyUnknown(char myChar){
         switch(myChar){
             case '+':
@@ -140,10 +141,22 @@ public class LexicalAnalyzer
                 break;
             case '<':
                 addChar();
+                if(!Character.isWhitespace((char) currentChar++)){
+                    getChar();
+                    addChar();
+                    nextToken = LESS_EQ_OP;
+                    break;
+                }
                 nextToken = LESS_OP;
                 break;
             case '>':
                 addChar();
+                if(!Character.isWhitespace((char) currentChar++)){
+                    getChar();
+                    addChar();
+                    nextToken = GREAT_EQ_OP;
+                    break;
+                }
                 nextToken = GREAT_OP;
                 break;
             case '(':
@@ -153,6 +166,26 @@ public class LexicalAnalyzer
             case ')':
                 addChar();
                 nextToken = RIGHT_PAREN;
+                break;
+            case '=':
+                addChar();
+                if(!Character.isWhitespace((char) currentChar++)){
+                    getChar();
+                    addChar();
+                    nextToken = EQ_OP;
+                    break;
+                }
+                nextToken = ASSIGN_OP;
+                break;
+            case '!':
+                addChar();
+                getChar();
+                addChar();
+                nextToken = NOT_EQ_OP;
+                break;
+            case ';':
+                addChar();
+                nextToken = END_STATE;
                 break;
             default:
                 addChar();
