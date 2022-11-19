@@ -18,6 +18,14 @@ These are the rules for recognizing all lexemes as their proper token and define
 | STR_DT_KEY | Keyword to declare a string datatype | WORD | 25 |
 | LONG_DT_KEY | Keyword to declare a 8 byte integer datatype | BIG_NUM | 26 |
 | BOOL_DT_KEY | Keyword to declare an boolean datatype | BOOL | 27 |
+| INT_LIT | Token to identify integer literals | [0-9]+ | 20 |
+| IDENT | Token for identifiers | [a-zA-z_]+ | 21 | 
+| ASSIGN_OP | Token to identify the assignment operator | = | 30 |
+| ADD_OP | Token to identify the addition operator | + | 31 |
+| SUB_OP | Token to identify the subtraction operator | - | 32 |
+| MULT_OP | Token to identify the multiplication operator | * | 33 |
+| DIV_OP | Token to identify the division operator | / | 34 |
+| MOD_OP | Token to identify the modulus operator | % | 35 |
 
 
 ## Production Rules For Mathematical Syntax
