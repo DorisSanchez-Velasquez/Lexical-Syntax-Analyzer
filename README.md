@@ -1,7 +1,7 @@
 # Programming Language Concepts - Lexical and Syntax Analyzer
 Creating the lexical and syntax analyzer for a programming language. This language will be able to create variables, assign them value, calculate basic mathematic operations and relational operations for integers of different types, as well as variables that can be either.
 
-## Integer Token Codes
+## Token Codes Rules And Descriptions
 These are the rules for recognizing all lexemes as their proper token and defines all the integer token codes for each token required in this language.
 
 | Token | Description | Regular Expression | Token Code |
