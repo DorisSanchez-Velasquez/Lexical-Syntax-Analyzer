@@ -25,6 +25,8 @@ public class LexicalAnalyzer
     /*Keywords*/
     //Loop Keywords
     static final int LOOP_KEY = 22; 
+    //Conditional Keywords
+    static final int IF_KEY = 28;
     // Data Type Declaration Keywords
     static final int DECLARE_KEY = 23;
     //Data Type Keywords
@@ -120,7 +122,7 @@ public class LexicalAnalyzer
     }
 
 /* ************************************************************************************************ */
-    /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, keywords, and end statement symbols etc. and return token code*/
+    /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, relational operators, and end statement symbols etc. and return token code*/
     public static int identifyUnknown(char myChar){
         switch(myChar){
             case '+':
@@ -202,11 +204,14 @@ public class LexicalAnalyzer
     /* identifyKeyword: This function will check if the current lexeme is equal to any keyword in the language and match the token code */
     public static void identifyKeyword(){
         switch(lexeme){
-            case "looper":
+            case "reiterate":
                 nextToken = LOOP_KEY;
                 break;
             case "declare":
                 nextToken = DECLARE_KEY;
+                break;
+            case "assume":
+                nextToken = IF_KEY;
                 break;
             case "NUM":
                 nextToken = INT_DT_KEY;
@@ -227,7 +232,7 @@ public class LexicalAnalyzer
     }
 
 /* ************************************************************************************************ */
-    /* lexAnalyzer: this is the main function for the lexical analyzer to get the token codes for each character */
+    /* lexAnalyzer: this is the main function for the lexical analyzer to get the token codes for each character class until the end of file is reached*/
     public static void lexAnalyzer()
     {
         lexemeLen = 0;
@@ -260,6 +265,6 @@ public class LexicalAnalyzer
                 lexeme = "EOF";
                 break;
         }
-        System.out.println("Next token is: " + nextToken + ", Next Lexeme is: " + lexeme);
+        System.out.println("Token: " + nextToken + ", Lexeme: " + lexeme);
     }
 }
