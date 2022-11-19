@@ -26,6 +26,16 @@ These are the rules for recognizing all lexemes as their proper token and define
 | MULT_OP | Token to identify the multiplication operator | * | 33 |
 | DIV_OP | Token to identify the division operator | / | 34 |
 | MOD_OP | Token to identify the modulus operator | % | 35 |
+| LESS_OP | Token to identify the less than operator | < | 40 |
+| GREAT_OP | Token to identify the greater than operator | > | 41 |
+| LESS_EQ_OP | Token to identify the less than or equal to operator | <= | 42 |
+| GREAT_EQ_OP | Token to identify the greater than or equal to operator | >= | 43 |
+| EQ_OP | Token to identify the equal to operator | == | 44 | 
+| NOT_EQ_OP | Token to identify the not equal to operator | != | 45 |
+| LEFT_PAREN | Token to identify a left parenthesis | ( | 50 |
+| RIGHT_PAREN | Token to identify the right parenthesis | ) | 51 |
+| END_STATE | Token to identify the symbol when the end of the statement/line was reached | ; | 52 |
+| EOF | Token to identify the end of a file | EOF | -1 |
 
 
 ## Production Rules For Mathematical Syntax
