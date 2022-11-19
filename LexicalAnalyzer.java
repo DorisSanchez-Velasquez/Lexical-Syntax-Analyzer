@@ -5,7 +5,7 @@ public class LexicalAnalyzer
 {
     /*GLOBAL DECLARATIONS*/
     /* Variables */
-    static String lexeme;
+    static String lexeme = "";
     static char nextChar;
     static int lexemeLen;
     static int charClass;
@@ -54,7 +54,7 @@ public class LexicalAnalyzer
     static final int EOF = -1;
 
 
-/************************************************************************************************* */
+/* ************************************************************************************************ */
     /* MAIN FUNCTION DRIVER*/
     public static void main (String args[])
     {
@@ -69,6 +69,7 @@ public class LexicalAnalyzer
             while(nextToken != EOF)
             {
                 lexAnalyzer();
+                lexeme = "";
             }
         } 
         catch(FileNotFoundException error) {
@@ -114,10 +115,58 @@ public class LexicalAnalyzer
         }
     }
 
+    /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, end statement symbols etc. and return token code*/
+    public static int identifyUnknown(char myChar){
+        switch(myChar){
+            case '+':
+                addChar();
+                nextToken = ADD_OP;
+                break;
+            case '-':
+                addChar();
+                nextToken = SUB_OP;
+                break;
+            case '*':
+                addChar();
+                nextToken = MULT_OP;
+                break;
+            case '/':
+                addChar();
+                nextToken = DIV_OP;
+                break;
+            case '%':
+                addChar();
+                nextToken = MOD_OP;
+                break;
+            case '<':
+                addChar();
+                nextToken = LESS_OP;
+                break;
+            case '>':
+                addChar();
+                nextToken = GREAT_OP;
+                break;
+            case '(':
+                addChar();
+                nextToken = LEFT_PAREN;
+                break;
+            case ')':
+                addChar();
+                nextToken = RIGHT_PAREN;
+                break;
+            default:
+                addChar();
+                nextToken = EOF;
+                break;
+        }
+        return nextToken;
+    }
+
     /* lexAnalyzer: this is the main function for the lexical analyzer to get the token codes for each character */
     public static void lexAnalyzer()
     {
         lexemeLen = 0;
+        getNonBlankSpace();
         switch(charClass){
             case LETTER:
                 addChar();
@@ -128,6 +177,24 @@ public class LexicalAnalyzer
                 }
                 nextToken = IDENT;
                 break;
+            case DIGIT:
+                addChar();
+                getChar();
+                while(charClass == DIGIT){
+                    addChar();
+                    getChar();
+                }
+                nextToken = INT_LIT;
+                break;
+            case UNKNOWN:
+                identifyUnknown(nextChar);
+                getChar();
+                break;
+            case EOF:
+                nextToken = EOF;
+                lexeme = "EOF";
+                break;
         }
+        System.out.println("Next token is: " + nextToken + ", Next Lexeme is: " + lexeme);
     }
 }
