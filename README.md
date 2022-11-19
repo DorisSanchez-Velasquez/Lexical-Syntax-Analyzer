@@ -9,6 +9,15 @@ These are the rules for recognizing all lexemes as their proper token and define
 | LETTER | Character Class: Letter | [a-zA-z] | 0 |
 | DIGIT | Character Class: Number | \d | 1 |
 | UNKNOWN | Unknown Characters: Symbols, Operators, keywords | N/A | 99 |
+| BEGIN_KEY | Keyword to begin a program | launch | 28 |
+| END_KEY | Keyword to end a program | terminate | 29 |
+| LOOP_KEY | Keyword to declare a loop | reiterate | 22 | 
+| IF_KEY | Keyword to declare an conditional statement | assume | 53 | 
+| DECLARE_KEY | Keyword to declare a variable assignment | declare | 23 |
+| INT_DT_KEY | Keyword to declare an 4 byte integer datatype (default) | NUM | 24 | 
+| STR_DT_KEY | Keyword to declare a string datatype | WORD | 25 |
+| LONG_DT_KEY | Keyword to declare a 8 byte integer datatype | BIG_NUM | 26 |
+| BOOL_DT_KEY | Keyword to declare an boolean datatype | BOOL | 27 |
 
 
 ## Production Rules For Mathematical Syntax

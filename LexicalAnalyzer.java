@@ -29,7 +29,7 @@ public class LexicalAnalyzer
     //Loop Keywords
     static final int LOOP_KEY = 22; 
     //Conditional Keywords
-    static final int IF_KEY = 28;
+    static final int IF_KEY = 53;
     // Data Type Declaration Keywords
     static final int DECLARE_KEY = 23;
     //Data Type Keywords
