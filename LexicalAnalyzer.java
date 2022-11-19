@@ -207,6 +207,12 @@ public class LexicalAnalyzer
     /* identifyKeyword: This function will check if the current lexeme is equal to any keyword in the language and match the token code */
     public static void identifyKeyword(){
         switch(lexeme){
+            case "launch":
+                nextToken = BEGIN_KEY;
+                break;
+            case "terminate":
+                nextToken = END_KEY;
+                break;
             case "reiterate":
                 nextToken = LOOP_KEY;
                 break;
