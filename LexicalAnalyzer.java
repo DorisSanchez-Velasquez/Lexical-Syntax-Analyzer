@@ -122,7 +122,7 @@ public class LexicalAnalyzer
     }
 
 /* ************************************************************************************************ */
-    /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, keywords, and end statement symbols etc. and return token code*/
+    /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, relational operators, and end statement symbols etc. and return token code*/
     public static int identifyUnknown(char myChar){
         switch(myChar){
             case '+':
@@ -232,7 +232,7 @@ public class LexicalAnalyzer
     }
 
 /* ************************************************************************************************ */
-    /* lexAnalyzer: this is the main function for the lexical analyzer to get the token codes for each character */
+    /* lexAnalyzer: this is the main function for the lexical analyzer to get the token codes for each character class until the end of file is reached*/
     public static void lexAnalyzer()
     {
         lexemeLen = 0;
@@ -265,6 +265,6 @@ public class LexicalAnalyzer
                 lexeme = "EOF";
                 break;
         }
-        System.out.println("Next token is: " + nextToken + ", Next Lexeme is: " + lexeme);
+        System.out.println("Token: " + nextToken + ", Lexeme: " + lexeme);
     }
 }
