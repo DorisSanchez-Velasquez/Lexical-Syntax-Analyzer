@@ -20,7 +20,6 @@ public class LexicalAnalyzer
     //Character Classes
     static final int LETTER = 0;
     static final int DIGIT = 1;
-    static final int KEYWORD = 2;
     static final int UNKNOWN = 99; 
 
     /*Keywords*/
@@ -79,6 +78,7 @@ public class LexicalAnalyzer
     }
 
 
+/* ************************************************************************************************ */
     /* getChar: This is a function to get the next character from the input file and find out the character class */
     public static void getChar()
     {
@@ -103,12 +103,15 @@ public class LexicalAnalyzer
         }
     }
 
+
+/* ************************************************************************************************ */
     /* addChar: this is the function that add the new character to the existing lexeme*/
     public static void addChar()
     {
         lexeme += nextChar;
     }
 
+/* ************************************************************************************************ */
     /* getNonBlankSpace: This is a function to keeping calling for new a character from get char until it is a non-whitespace character */
     public static void getNonBlankSpace(){
         while(Character.isWhitespace(nextChar)){
@@ -116,6 +119,7 @@ public class LexicalAnalyzer
         }
     }
 
+/* ************************************************************************************************ */
     /* identifyUnknown: This function will match the unknown characters with operators, paranthesis, keywords, and end statement symbols etc. and return token code*/
     public static int identifyUnknown(char myChar){
         switch(myChar){
@@ -194,7 +198,35 @@ public class LexicalAnalyzer
         }
         return nextToken;
     }
+/* ************************************************************************************************ */
+    /* identifyKeyword: This function will check if the current lexeme is equal to any keyword in the language and match the token code */
+    public static void identifyKeyword(){
+        switch(lexeme){
+            case "looper":
+                nextToken = LOOP_KEY;
+                break;
+            case "declare":
+                nextToken = DECLARE_KEY;
+                break;
+            case "NUM":
+                nextToken = INT_DT_KEY;
+                break;
+            case "WORD":
+                nextToken = STR_DT_KEY;
+                break;
+            case "BIG_NUM":
+                nextToken = LONG_DT_KEY;
+                break;
+            case "BOOL":
+                nextToken = BOOL_DT_KEY;
+                break;
+            default:
+                nextToken = IDENT;
+                break;
+        }
+    }
 
+/* ************************************************************************************************ */
     /* lexAnalyzer: this is the main function for the lexical analyzer to get the token codes for each character */
     public static void lexAnalyzer()
     {
@@ -208,7 +240,7 @@ public class LexicalAnalyzer
                     addChar();
                     getChar();
                 }
-                nextToken = IDENT;
+                identifyKeyword();
                 break;
             case DIGIT:
                 addChar();
