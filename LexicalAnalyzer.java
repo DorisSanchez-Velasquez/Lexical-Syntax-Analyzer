@@ -23,6 +23,9 @@ public class LexicalAnalyzer
     static final int UNKNOWN = 99; 
 
     /*Keywords*/
+    //Begin and End Program Keywords
+    static final int BEGIN_KEY = 28;
+    static final int END_KEY = 29;
     //Loop Keywords
     static final int LOOP_KEY = 22; 
     // Data Type Declaration Keywords
