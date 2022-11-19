@@ -25,6 +25,8 @@ public class LexicalAnalyzer
     /*Keywords*/
     //Loop Keywords
     static final int LOOP_KEY = 22; 
+    //Conditional Keywords
+    static final int IF_KEY = 28;
     // Data Type Declaration Keywords
     static final int DECLARE_KEY = 23;
     //Data Type Keywords
@@ -202,11 +204,14 @@ public class LexicalAnalyzer
     /* identifyKeyword: This function will check if the current lexeme is equal to any keyword in the language and match the token code */
     public static void identifyKeyword(){
         switch(lexeme){
-            case "looper":
+            case "reiterate":
                 nextToken = LOOP_KEY;
                 break;
             case "declare":
                 nextToken = DECLARE_KEY;
+                break;
+            case "assume":
+                nextToken = IF_KEY;
                 break;
             case "NUM":
                 nextToken = INT_DT_KEY;
