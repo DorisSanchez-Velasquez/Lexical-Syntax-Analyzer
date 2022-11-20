@@ -169,5 +169,7 @@ Create a LR (1) parse table for yourlanguage. And show the trade of 4 code sampl
 ## LR Parse Table For The Language
 Note: Brace yourself. It is really long and you can find closeups in the folder labeled ParseTable Screenshots.
 
-![Parse #1](./part1.png)
+![Parse #1](./Parse%20Table%20Screenshots/part1.png)
+![Parse #2](./Parse%20Table%20Screenshots/part2.png)
+![Parse #3](./Parse%20Table%20Screenshots/part3.png)
 
