@@ -98,7 +98,7 @@ Additionally, this production rules are not ambiguous grammar because there are 
 
 - [ ] Write a program or an extension to the above program that determines if the tokens conform to the correct syntax.
 
-- [ ] Create 4 test files that have different names where each should have 30 or more lexemes that can be converted into tokens
+- [X] Create 4 test files that have different names where each should have 30 or more lexemes that can be converted into tokens
 
 - [X] Each program should have a clear beginning and end as well as a way to separate multiple statements
 
@@ -164,6 +164,7 @@ Errors:
 This is the LR Parse Table for this language. Four code samples are provides that have 6 or more tokens and shows where these samples have passed and failed.
 
 **Parse Table Rules**
+
 ![Parse Table Rules](./Parse%20Table%20Screenshots/ParseTableRules.png)
 
 **Samples With Errors**
