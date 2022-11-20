@@ -42,17 +42,29 @@ These are the rules for recognizing all lexemes as their proper token and define
 These are the production rules for implementing the mathematical syntax of operators and operands, loops, variable declaration, and selection statements. 
 
 PROGRAM -> launch STATEMENTS terminate   <br />
+
 STATEMENTS -> ASSIGN | CONDITIONAL | LOOP | MATH  <br />
+
 CONDITIONAL -> assume ( RELATIONAL ) { STATEMENTS }  <br />
+
 RELATIONAL -> TERM {( <= | >= | < | > | != | == ) TERM}  <br />
+
 TERM -> identifier | int_lit | ( MATH )  <br />
+
 ASSIGN -> declare DATATYPE  <br />
+
 DATATYPE -> {(WORD | NUM | BIG_NUM | BOOL) = TERM}  <br />
+
 LOOP reiterate ( RELATIONAL ) { STATEMENTS }  <br />
+
 MATH -> EXPR {(* | / | %) EXPR}  <br />
+
 EXPR -> FACTOR {( + | - ) FACTOR}  <br />
+
 FACTOR -> EQUALITY {( == | != ) EQUALITY}   <br />
+
 EQUALITY -> RELATE {( < | > ) RELATE}   <br />
+
 RELATE -> TERM {( <= | >= ) TERM}  <br />
 
 ## Grammar
