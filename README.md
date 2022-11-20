@@ -39,11 +39,21 @@ These are the rules for recognizing all lexemes as their proper token and define
 
 
 ## Production Rules For Mathematical Syntax
-Define production rules for implementing the mathematical syntax of operators and operands, loops, variable declaration, selection statements.
-- Enforce a non PEMDAS (BODMAS) order of operation, must have at least 6 levels of precedence
-- Keywords cannot use the words while, for, do ,if, int, short, long
- - Keywords should be unique, if otehrs share your same words, you may lose more points than this problem is worth
-- You must clearly state the structure of your language with production rules
+These are the production rules for implementing the mathematical syntax of operators and operands, loops, variable declaration, and selection statements. 
+
+<PROGRAM> -> launch <STATEMENTS> terminate
+<STATEMENTS> -> <ASSIGN> | <CONDITIONAL> | <LOOP> | <MATH>
+<CONDITIONAL> -> assume ( <RELATIONAL> ) { <STATEMENTS> }
+<RELATIONAL> -> <TERM> {( <= | >= | < | > | != | == ) <TERM>}
+<TERM> identifier | int_lit | ( <MATH> )
+<ASSIGN> -> declare <DATATYPE>
+<DATATYPE> -> {(WORD | NUM | BIG_NUM | BOOL) = <TERM>}
+<LOOP> reiterate ( <RELATIONAL> ) { <STATEMENTS> }
+<MATH> -> <EXPR> {(* | / | %) <EXPR>}
+<EXPR> -> <FACTOR> {( + | - ) <FACTOR>}
+<FACTOR> -> <EQUALITY> {( == | != ) <EQUALITY>}
+<EQUALITY> -> <RELATE> {( < | > ) <RELATE>}
+<RELATE> -> <TERM> {( <= | >= ) <TERM>}
 
 ## Grammar
 - Show whether every rule set in your language conforms to the standard of an LL Grammar

@@ -1,1 +1,3 @@
-declare NUM myNum = ( sum + 47 ) / total
+launch
+declare NUM myNum = 47;
+terminate
