@@ -68,8 +68,27 @@ EQUALITY -> RELATE {( < | > ) RELATE}   <br />
 RELATE -> TERM {( <= | >= ) TERM}  <br />
 
 ## Grammar
-- Show whether every rule set in your language conforms to the standard of an LL Grammar
-- Make sure it is not ambiguous grammar
+Show whether every rule set in the language conforms to the standard of an LL Grammar.
+
+Pairwise Disjointness Test:
+
+- FIRST( PROGRAM ) -> {launch} <br />
+- FIRST( STATEMENTS ) -> {declare} {assume} {reiterate} {id} <br />
+- FIRST( CONDITIONAL ) -> {assume} <br />
+- FIRST( RELATIONAL ) -> {id} <br />
+- FIRST( TERM ) -> {identifier} {int_literal} { ( } <br />
+- FIRST( ASSIGN ) -> {declare} <br />
+- FIRST( DATATYPE ) -> {WORD} {NUM} {BIG_NUM} {BOOL} <br />
+- FIRST( LOOP ) -> {reiterate} <br />
+- FIRST( MATH ) -> {identifier} {int_literal} { ( } <br />
+- FIRST( EXPR ) -> {identifier} {int_literal} { ( } <br />
+- FIRST( FACTOR ) -> {identifier} {int_literal} { ( } <br />
+- FIRST( EQUALITY ) -> {identifier} {int_literal} { ( } <br />
+- FIRST( RELATE ) -> {identifier} {int_literal} { ( } <br />
+
+Note: All the rules pass the pairwise disjointness test and can be parsed in a top down fashion.
+
+Additionally, this production rules are not ambiguous grammar because there are no two ways to make the same statements.
 
 ## Assignment
 - [ ] Write a program that process all lexemes in a file by recognizing all tokens in a file, and produces a list of those tokens in order.
