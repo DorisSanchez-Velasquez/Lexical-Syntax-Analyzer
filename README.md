@@ -113,7 +113,7 @@ Additionally, this production rules are not ambiguous grammar because there are 
 ## Testing
 These test files should have 30 or more lexemes that can be converted into tokens:
 
-Test files with no errors at all based on the language
+**Test files with no errors at all based on the language**
 1. test_NoErrors_1.txt
 2. test_NoErrors_2.txt
 
@@ -121,36 +121,32 @@ Test files with no errors at all based on the language
 <br />
 <br />
 
-Test file with at least 5 lexical errors based on the defined rules 
+**Test file with at least 5 lexical errors based on the defined rules**
 Name: test_LexErrors.txt
 Errors:
-1. declare WORD description = " Sahara';
+* declare WORD description = " Sahara';
+    * The word variable name 'description' is too long of a variable name than what is required within the language and would result in an error. This is because the language enforces a variable names between the length of 6-8.
 
-The word variable name 'description' is too long of a variable name than what is required within the language and would result in an error. This is because the language enforces a variable names between the length of 6-8.
+*  The next error is in the quotations enclosing the word literal "Sahara". The word ends with the wrong quotation having it continue until the end of the file without ending. The lexical analyzer wouldn't be able to determine the token for all the characters in the quotations.
 
-2. The next error is in the quotations enclosing the word literal "Sahara". The word ends with the wrong quotation having it continue until the end of the file without ending. The lexical analyzer wouldn't be able to determine the token for all the characters in the quotations.
+* title = 'Fun Facts About the World'
+    * This word litral 'Fun Facts About the Word' is encased within the wrong quotations  and would result in the lexical analyzer reading all the character up until the end of the file because the correct quotations were not given to end the variable declaration.
 
-3. title = 'Fun Facts About the World'
+* myNum = 2a
+    * In this integer variable declaration, the 2a would not be considered a number nor an identifier which would result in a lexical error where the data type for the variable could not be determined.
 
-This word litral 'Fun Facts About the Word' is encased within the wrong quotations  and would result in the lexical analyzer reading all the character up until the end of the file because the correct quotations were not given to end the variable declaration.
-
-4. myNum = 2a
-
-In this integer variable declaration, the 2a would not be considered a number nor an identifier which would result in a lexical error where the data type for the variable could not be determined.
-
-5. title = "Fun Fact';
-
-This is another lexical error where the string literal "Fun fact' ends with the wrong quotation which with have the lexical analyzer continuously read all the characters without an end point until it reaches the end of the file.
+* title = "Fun Fact';
+    * This is another lexical error where the string literal "Fun fact' ends with the wrong quotation which with have the lexical analyzer continuously read all the characters without an end point until it reaches the end of the file.
 
 <br />
 <br />
 <br />
 
 
--Test file with at least 5 syntax errors based on the defined rules
+**Test file with at least 5 syntax errors based on the defined rules**
 Name: test_SynErrors.txt
 Errors: 
-1. 
+* 
 
 ## Parse Tables
 Create a LR (1) parse table for yourlanguage. And show the trade of 4 code samples. Each must have 6 or more tokens.
