@@ -166,6 +166,8 @@ Create a LR (1) parse table for yourlanguage. And show the trade of 4 code sampl
 - 2 code samples must have errors
 - Show where these samples fail and pass the test
 
-## Programming Language Documentation
-- Will be written using Java
+## LR Parse Table For The Language
+Note: Brace yourself. It is really long and you can find closeups in the folder labeled ParseTable Screenshots.
+
+![Parse #1](./part1.png)
 
