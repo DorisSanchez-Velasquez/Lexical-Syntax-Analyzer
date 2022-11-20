@@ -161,10 +161,19 @@ Errors:
     * This statement will result in a syntax error because, similar to previous errors, the -= is not a recognized symbol in this language even though the - and = are separately. The lexical analyzer would recognize them separately and treat them as such rather than the initial intentionl.
 
 ## Parse Tables
-Create a LR (1) parse table for yourlanguage. And show the trade of 4 code samples. Each must have 6 or more tokens.
-- Table must be provided and the rules must be listed
-- 2 code samples must have errors
-- Show where these samples fail and pass the test
+This is the LR Parse Table for this language. Four code samples are provides that have 6 or more tokens and shows where these samples have passed and failed.
+
+**Parse Table Rules**
+![Parse Table Rules](./Parse%20Table%20Screenshots/ParseTableRules.png)
+
+**Samples With Errors**
+![Sample With Error #1](./Parse%20Table%20Screenshots/sample_Error1.png)
+![Sample With Error #2](./Parse%20Table%20Screenshots/sample_Error2.png)
+
+**Samples Without Errors**
+![Sample With No Error #1](./Parse%20Table%20Screenshots/sample_noError1.png)
+![Sample With No Error #2](./Parse%20Table%20Screenshots/sample_noError2.png)
+
 
 ## LR Parse Table For The Language
 Note: Brace yourself. It is really long and you can find closeups in the folder labeled ParseTable Screenshots.
