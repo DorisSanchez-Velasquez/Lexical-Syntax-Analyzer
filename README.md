@@ -172,4 +172,11 @@ Note: Brace yourself. It is really long and you can find closeups in the folder 
 ![Parse #1](./Parse%20Table%20Screenshots/part1.png)
 ![Parse #2](./Parse%20Table%20Screenshots/part2.png)
 ![Parse #3](./Parse%20Table%20Screenshots/part3.png)
+![Parse #4](./Parse%20Table%20Screenshots/part4.png)
+![Parse #5](./Parse%20Table%20Screenshots/part5.png)
+![Parse #6](./Parse%20Table%20Screenshots/part6.png)
+![Parse #7](./Parse%20Table%20Screenshots/part7.png)
+![Parse #8](./Parse%20Table%20Screenshots/part8.png)
+![Parse #9](./Parse%20Table%20Screenshots/part9.png)
+![Parse #10](./Parse%20Table%20Screenshots/part10.png)
 
