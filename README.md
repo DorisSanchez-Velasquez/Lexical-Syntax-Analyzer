@@ -172,7 +172,7 @@ This is the LR Parse Table for this language. Four code samples are provides tha
 
 **Samples Without Errors**
 ![Sample With No Error #1](./Parse%20Table%20Screenshots/sample_noError1.png)
-![Sample With No Error #2](./Parse%20Table%20Screenshots/sample_noError2.png)
+![Sample With No Error #2](./Parse%20Table%20Screenshots/sample_noError3.png)
 
 
 ## LR Parse Table For The Language
