@@ -55,6 +55,9 @@ public class LexicalAnalyzer
     static final int NOT_EQ_OP = 45;
     static final int LEFT_PAREN = 50;
     static final int RIGHT_PAREN = 51;
+    static final int LEFT_BRACKET = 54;
+    static final int RIGHT_BRACKET = 55;
+    static final int QUOTATIONS = 56; 
     static final int END_STATE = 52;
     static final int EOF = -1;
 
@@ -63,10 +66,16 @@ public class LexicalAnalyzer
     /* MAIN FUNCTION DRIVER*/
     public static void main (String args[])
     {
+        //Take in the name of the file from user input
+        Scanner myFile = new Scanner(System.in);  
+        System.out.println("Enter filename: ");
+        String filename = myFile.nextLine();  
+        myFile.close();
+
         //Open a file and if you can't open it then send an error message
         //Else run the getchar function
         try{
-            myInputFile = new File("tester.txt");
+            myInputFile = new File(filename);
             FileReader readFileObj = new FileReader(myInputFile);
             myReader = new BufferedReader(readFileObj);
 
@@ -176,6 +185,14 @@ public class LexicalAnalyzer
                 addChar();
                 nextToken = RIGHT_PAREN;
                 break;
+            case '{':
+                addChar();
+                nextToken = LEFT_BRACKET;
+                break;
+            case '}':
+                addChar();
+                nextToken = RIGHT_BRACKET;
+                break;
             case '=':
                 addChar();
                 if(!Character.isWhitespace((char) currentChar++)){
@@ -191,6 +208,10 @@ public class LexicalAnalyzer
                 getChar();
                 addChar();
                 nextToken = NOT_EQ_OP;
+                break;
+            case '"':
+                addChar();
+                nextToken = QUOTATIONS;
                 break;
             case ';':
                 addChar();

@@ -1,0 +1,14 @@
+launch
+    declare BIG_NUM x_num = 4354785030;
+    declare NUM iterator = 1;
+
+    assume ( x_num > 40 )
+    {
+        x_num = x_num * 3;
+    }
+
+    reiterate ( iterator != 4 )
+    {
+        x_num = x_num + 1;
+    }
+terminate

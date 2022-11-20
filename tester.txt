@@ -1,3 +1,0 @@
-launch
-declare NUM myNum = 47;
-terminate

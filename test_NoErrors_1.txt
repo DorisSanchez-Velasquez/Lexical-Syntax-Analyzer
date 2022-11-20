@@ -1,0 +1,12 @@
+launch
+
+declare NUM myNumOne = 47;
+declare NUM myNumTwo = 35;
+
+assume (myNumOne > myNumTwo)
+{
+    myNumTwo = myNumOne + 1;
+    myNumOne = myNumTwo + 3;
+}
+
+terminate

@@ -49,11 +49,13 @@ CONDITIONAL -> assume ( RELATIONAL ) { STATEMENTS }  <br />
 
 RELATIONAL -> TERM {( <= | >= | < | > | != | == ) TERM}  <br />
 
-TERM -> identifier | int_lit | ( MATH )  <br />
+TERM -> identifier | int_literal | ( MATH )  <br />
 
 ASSIGN -> declare DATATYPE  <br />
 
-DATATYPE -> {(WORD | NUM | BIG_NUM | BOOL) = TERM}  <br />
+DATATYPE -> {(WORD | NUM | BIG_NUM | BOOL) = DATA}  <br />
+
+DATA -> " identifier " | int_literal
 
 LOOP reiterate ( RELATIONAL ) { STATEMENTS }  <br />
 
@@ -79,6 +81,7 @@ Pairwise Disjointness Test:
 - FIRST( TERM ) -> {identifier} {int_literal} { ( } <br />
 - FIRST( ASSIGN ) -> {declare} <br />
 - FIRST( DATATYPE ) -> {WORD} {NUM} {BIG_NUM} {BOOL} <br />
+- FIRST( DATA ) -> {" identifier "} {int_literal}
 - FIRST( LOOP ) -> {reiterate} <br />
 - FIRST( MATH ) -> {identifier} {int_literal} { ( } <br />
 - FIRST( EXPR ) -> {identifier} {int_literal} { ( } <br />
@@ -97,7 +100,7 @@ Additionally, this production rules are not ambiguous grammar because there are 
 
 - [ ] Create 4 test files that have different names where each should have 30 or more lexemes that can be converted into tokens
 
-- [ ] Each program should have a clear beginning and end as well as a way to separate multiple statements
+- [X] Each program should have a clear beginning and end as well as a way to separate multiple statements
 
 - [X] For integer literals, you must be able to specify whether in memory this value should be saved as 1 byte, 2 bytes, 4 bytes, or 8 bytes.
 
@@ -108,12 +111,39 @@ Additionally, this production rules are not ambiguous grammar because there are 
 - [X] Language must be able to handle keywords to allow for loops, data type declarations, and selection statements.
 
 ## Testing
-Create 4 test files that have different names where each should have 30 or more lexemes that can be converted into tokens
-- 1 with at least 5 lexical errors based on the rules you defined
- - Detail each error and say why it doesn't work
-- 1 with at least 5 syntax errors based on the rules you defined
- - Detail each error and say why it doesn't work
-- 2 with no errors at all based on the language you created
+These test files should have 30 or more lexemes that can be converted into tokens:
+
+- Test files with no errors at all based on the language
+1. test_NoErrors_1.txt
+2. test_NoErrors_2.txt
+
+- Test file with at least 5 lexical errors based on the defined rules 
+Name: test_LexErrors.txt
+Errors:
+1. declare WORD description = " Sahara';
+
+The word variable name 'description' is too long of a variable name than what is required within the language and would result in an error. This is because the language enforces a variable names between the length of 6-8.
+
+2. The next error is in the quotations enclosing the word literal "Sahara". The word ends with the wrong quotation having it continue until the end of the file without ending. The lexical analyzer wouldn't be able to determine the token for all the characters in the quotations.
+
+3. title = 'Fun Facts About the World'
+
+This word litral 'Fun Facts About the Word' is encased within the wrong quotations  and would result in the lexical analyzer reading all the character up until the end of the file because the correct quotations were not given to end the variable declaration.
+
+4. myNum = 2a
+
+In this integer variable declaration, the 2a would not be considered a number nor an identifier which would result in a lexical error where the data type for the variable could not be determined.
+
+5. title = "Fun Fact';
+
+This is another lexical error where the string literal "Fun fact' ends with the wrong quotation which with have the lexical analyzer continuously read all the characters without an end point until it reaches the end of the file.
+
+There are two lexical errors in this one statement. 
+
+
+
+-Test file with at least 5 syntax errors based on the defined rules
+1. test_SynErrors.txt
 
 ## Parse Tables
 Create a LR (1) parse table for yourlanguage. And show the trade of 4 code samples. Each must have 6 or more tokens.

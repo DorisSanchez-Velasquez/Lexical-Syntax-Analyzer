@@ -1,0 +1,10 @@
+launch
+    declare WORD description = " Sahara ';
+    declare WORD title = 'Fun Facts About the World';
+
+    declare NUM myNum = 2a;
+    assume ( 25 > myNum)
+    {
+        title = "Fun Fact';
+    } 
+terminate
