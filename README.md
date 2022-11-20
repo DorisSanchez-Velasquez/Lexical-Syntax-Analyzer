@@ -113,11 +113,15 @@ Additionally, this production rules are not ambiguous grammar because there are 
 ## Testing
 These test files should have 30 or more lexemes that can be converted into tokens:
 
-- Test files with no errors at all based on the language
+Test files with no errors at all based on the language
 1. test_NoErrors_1.txt
 2. test_NoErrors_2.txt
 
-- Test file with at least 5 lexical errors based on the defined rules 
+<br />
+<br />
+<br />
+
+Test file with at least 5 lexical errors based on the defined rules 
 Name: test_LexErrors.txt
 Errors:
 1. declare WORD description = " Sahara';
@@ -138,12 +142,15 @@ In this integer variable declaration, the 2a would not be considered a number no
 
 This is another lexical error where the string literal "Fun fact' ends with the wrong quotation which with have the lexical analyzer continuously read all the characters without an end point until it reaches the end of the file.
 
-There are two lexical errors in this one statement. 
-
+<br />
+<br />
+<br />
 
 
 -Test file with at least 5 syntax errors based on the defined rules
-1. test_SynErrors.txt
+Name: test_SynErrors.txt
+Errors: 
+1. 
 
 ## Parse Tables
 Create a LR (1) parse table for yourlanguage. And show the trade of 4 code samples. Each must have 6 or more tokens.
