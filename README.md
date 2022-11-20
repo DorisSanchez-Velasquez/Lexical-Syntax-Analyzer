@@ -91,7 +91,7 @@ Note: All the rules pass the pairwise disjointness test and can be parsed in a t
 Additionally, this production rules are not ambiguous grammar because there are no two ways to make the same statements.
 
 ## Assignment
-- [ ] Write a program that process all lexemes in a file by recognizing all tokens in a file, and produces a list of those tokens in order.
+- [X] Write a program that process all lexemes in a file by recognizing all tokens in a file, and produces a list of those tokens in order.
 
 - [ ] Write a program or an extension to the above program that determines if the tokens conform to the correct syntax.
 
@@ -99,13 +99,13 @@ Additionally, this production rules are not ambiguous grammar because there are 
 
 - [ ] Each program should have a clear beginning and end as well as a way to separate multiple statements
 
-- [ ] For integer literals, you must be able to specify whether in memory this value should be saved as 1 byte, 2 bytes, 4 bytes, or 8 bytes.
+- [X] For integer literals, you must be able to specify whether in memory this value should be saved as 1 byte, 2 bytes, 4 bytes, or 8 bytes.
 
-- [ ] Variables should be able to be declared but on in separate lines from the assignment of value
+- [X] Variables should be able to be declared but on in separate lines from the assignment of value
 
-- [ ] Variable names can only be 6-8 letters, cannot contain numbers, but may contain underscores.
+- [X] Variable names can only be 6-8 letters, cannot contain numbers, but may contain underscores.
 
-- [ ] Language must be able to handle keywords to allow for loops, data type declarations, and selection statements.
+- [X] Language must be able to handle keywords to allow for loops, data type declarations, and selection statements.
 
 ## Testing
 Create 4 test files that have different names where each should have 30 or more lexemes that can be converted into tokens
