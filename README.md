@@ -114,10 +114,9 @@ Additionally, this production rules are not ambiguous grammar because there are 
 These test files should have 30 or more lexemes that can be converted into tokens:
 
 **Test files with no errors at all based on the language**
-1. test_NoErrors_1.txt
-2. test_NoErrors_2.txt
+* test_NoErrors_1.txt
+* test_NoErrors_2.txt
 
-<br />
 <br />
 <br />
 
@@ -140,13 +139,26 @@ Errors:
 
 <br />
 <br />
-<br />
 
 
 **Test file with at least 5 syntax errors based on the defined rules**
 Name: test_SynErrors.txt
 Errors: 
-* 
+* declare NUM number = 3
+    * All statements in this language should end with a semicolon or, if it's a code block, then an }.
+        * In this case, This statement does not end in a semicolon and it will keep reading all the characters in the file until a semi colon is reached which result in grammatically incorrect statements in this language.
+
+* assume ( number > 1) {
+    * This statement results in a syntax error because any conditional code block should end with a }. In this case, this conditional code block never ends and it will keep reading until the end of file which will result in grammatically incorrect conditional statements.
+
+* number =+ 2;
+    * This statement results in a syntax error because =+ is not a recognized symbol in this language even though = and + are separately. The lexical analyzer would recognize them separately and treat them as such even though the this was never the intention.
+
+* string = "wordssss"
+    * All variable declaration statements in this language must end with semicolon. In this case, this statement does not end in a semicolon and will continue reading all the lexemes in the file until a semi colon is reached which results in grammatically incorrect declaration statements in this language.
+
+* number -= 1;
+    * This statement will result in a syntax error because, similar to previous errors, the -= is not a recognized symbol in this language even though the - and = are separately. The lexical analyzer would recognize them separately and treat them as such rather than the initial intentionl.
 
 ## Parse Tables
 Create a LR (1) parse table for yourlanguage. And show the trade of 4 code samples. Each must have 6 or more tokens.
