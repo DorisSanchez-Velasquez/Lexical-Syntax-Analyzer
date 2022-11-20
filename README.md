@@ -41,19 +41,19 @@ These are the rules for recognizing all lexemes as their proper token and define
 ## Production Rules For Mathematical Syntax
 These are the production rules for implementing the mathematical syntax of operators and operands, loops, variable declaration, and selection statements. 
 
-PROGRAM -> launch STATEMENTS terminate
-STATEMENTS -> ASSIGN | CONDITIONAL | LOOP | MATH
-CONDITIONAL -> assume ( RELATIONAL ) { STATEMENTS }
-RELATIONAL -> TERM {( <= | >= | < | > | != | == ) TERM}
-TERM -> identifier | int_lit | ( MATH )
-ASSIGN -> declare DATATYPE
-DATATYPE -> {(WORD | NUM | BIG_NUM | BOOL) = TERM}
-LOOP reiterate ( RELATIONAL ) { STATEMENTS }
-MATH -> EXPR {(* | / | %) EXPR}
-EXPR -> FACTOR {( + | - ) FACTOR}
-FACTOR -> EQUALITY {( == | != ) EQUALITY}
-EQUALITY -> RELATE {( < | > ) RELATE}
-RELATE -> TERM {( <= | >= ) TERM}
+PROGRAM -> launch STATEMENTS terminate   <br />
+STATEMENTS -> ASSIGN | CONDITIONAL | LOOP | MATH  <br />
+CONDITIONAL -> assume ( RELATIONAL ) { STATEMENTS }  <br />
+RELATIONAL -> TERM {( <= | >= | < | > | != | == ) TERM}  <br />
+TERM -> identifier | int_lit | ( MATH )  <br />
+ASSIGN -> declare DATATYPE  <br />
+DATATYPE -> {(WORD | NUM | BIG_NUM | BOOL) = TERM}  <br />
+LOOP reiterate ( RELATIONAL ) { STATEMENTS }  <br />
+MATH -> EXPR {(* | / | %) EXPR}  <br />
+EXPR -> FACTOR {( + | - ) FACTOR}  <br />
+FACTOR -> EQUALITY {( == | != ) EQUALITY}   <br />
+EQUALITY -> RELATE {( < | > ) RELATE}   <br />
+RELATE -> TERM {( <= | >= ) TERM}  <br />
 
 ## Grammar
 - Show whether every rule set in your language conforms to the standard of an LL Grammar
