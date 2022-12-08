@@ -18,8 +18,8 @@ These are the rules for recognizing all lexemes as their proper token and define
 | STR_DT_KEY | Keyword to declare a string datatype | WORD | 25 |
 | LONG_DT_KEY | Keyword to declare a 8 byte integer datatype | BIG_NUM | 26 |
 | BOOL_DT_KEY | Keyword to declare an boolean datatype | BOOL | 27 |
-| INT_LIT | Token to identify integer literals | [0-9]+ | 20 |
-| IDENT | Token for identifiers | [a-zA-z_]+ | 21 | 
+| INT_LIT | Token to identify integer literals (the letter b used for 8 byte integers) | [0-9]+b? | 20 |
+| IDENT | Token for identifiers | [a-zA-z_]{6,8} | 21 | 
 | ASSIGN_OP | Token to identify the assignment operator | = | 30 |
 | ADD_OP | Token to identify the addition operator | + | 31 |
 | SUB_OP | Token to identify the subtraction operator | - | 32 |
@@ -43,7 +43,7 @@ These are the production rules for implementing the mathematical syntax of opera
 
 PROGRAM -> launch STATEMENTS terminate   <br />
 
-STATEMENTS -> ASSIGN | CONDITIONAL | LOOP | MATH  <br />
+STATEMENTS -> ASSIGN | DECLARE | CONDITIONAL | LOOP | MATH  <br />
 
 CONDITIONAL -> assume ( RELATIONAL ) { STATEMENTS }  <br />
 
@@ -51,11 +51,13 @@ RELATIONAL -> TERM {( <= | >= | < | > | != | == ) TERM}  <br />
 
 TERM -> identifier | int_literal | ( MATH )  <br />
 
-ASSIGN -> declare DATATYPE  <br />
+DECLARE -> declare DATATYPE  <br />
 
 DATATYPE -> {(WORD | NUM | BIG_NUM | BOOL) = DATA}  <br />
 
-DATA -> " identifier " | int_literal
+DATA -> " identifier " | int_literal | identifier
+
+ASSIGN -> identifier = DATA
 
 LOOP reiterate ( RELATIONAL ) { STATEMENTS }  <br />
 
@@ -79,9 +81,10 @@ Pairwise Disjointness Test:
 - FIRST( CONDITIONAL ) -> {assume} <br />
 - FIRST( RELATIONAL ) -> {id} <br />
 - FIRST( TERM ) -> {identifier} {int_literal} { ( } <br />
-- FIRST( ASSIGN ) -> {declare} <br />
+- FIRST( DECLARE ) -> {declare} <br />
 - FIRST( DATATYPE ) -> {WORD} {NUM} {BIG_NUM} {BOOL} <br />
-- FIRST( DATA ) -> {" identifier "} {int_literal}
+- FIRST( DATA ) -> {" identifier "} {int_literal} {identifier}
+- FIRST( ASSIGN ) -> {identifier}
 - FIRST( LOOP ) -> {reiterate} <br />
 - FIRST( MATH ) -> {identifier} {int_literal} { ( } <br />
 - FIRST( EXPR ) -> {identifier} {int_literal} { ( } <br />
