@@ -34,6 +34,9 @@ These are the rules for recognizing all lexemes as their proper token and define
 | NOT_EQ_OP | Token to identify the not equal to operator | != | 45 |
 | LEFT_PAREN | Token to identify a left parenthesis | ( | 50 |
 | RIGHT_PAREN | Token to identify the right parenthesis | ) | 51 |
+| LEFT_BRACKET | Token to identify the left bracket | { | 54 |
+| RIGHT_BRACKET | Token to identify the right bracket | } | 55 |
+| QUOTATIONS | Token to identify the quotations | " | 56 | 
 | END_STATE | Token to identify the symbol when the end of the statement/line was reached | ; | 52 |
 | EOF | Token to identify the end of a file | EOF | -1 |
 
